@@ -7,8 +7,6 @@ import FormControl from "react-bootstrap/FormControl";
 import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from 'react-router-bootstrap'
 
-import { BrowserRouter as Link } from "react-router-dom";
-
 class NavBar extends React.Component {
   render() {
     return (
@@ -50,14 +48,14 @@ class NavBar extends React.Component {
               </NavDropdown> */}
             </Nav>
             <Nav>
-              <Link to="/signup">
+              <LinkContainer to="/signup">
                 <Nav.Link href="/signup">Sign Up</Nav.Link>
-              </Link>
-              <Link to="/signin">
-                <Nav.Link eventKey={2} href="signin">
+              </LinkContainer>
+              <LinkContainer to="/login">
+                <Nav.Link eventKey={2} href="/login">
                   Sign In
                 </Nav.Link>
-              </Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
