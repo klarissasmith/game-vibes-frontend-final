@@ -12,7 +12,7 @@ class GameCollection extends React.Component {
     return (
       <div>
         Game Collection: where the games are and it renders the cards.
-        {<GameCard />}
+        {this.props.games.map(game => <GameCard game={game} key={game.id}/>)}
       </div>
     );
   }
