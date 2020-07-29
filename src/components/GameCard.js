@@ -7,7 +7,7 @@ class GameCard extends React.Component{
         return (
           <div>
             <CardDeck>
-              <Card onClick={console.log("I've been clicked")}>
+              <Card>
                 <Card.Img variant="top" src="" />
                 <Card.Body>
                   <Card.Title>The Title of the Game</Card.Title>

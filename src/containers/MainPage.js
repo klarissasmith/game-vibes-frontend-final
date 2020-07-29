@@ -19,7 +19,6 @@ class MainPage extends React.Component{
                 <Button variant="primary">Sign Up</Button>
               </p>
             </Jumbotron>
-            <GameCollection />
           </div>
         );
     }
