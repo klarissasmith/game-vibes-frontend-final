@@ -1,5 +1,8 @@
 import React from 'react'
 import GameCard from "./GameCard"
+import CardDeck from "react-bootstrap/CardDeck";
+import CardGroup from "react-bootstrap/CardGroup";
+
 
 class GameCollection extends React.Component {
   renderGames = () => {
@@ -8,12 +11,10 @@ class GameCollection extends React.Component {
     });
   };
     render() {
-        console.log(this.props)
     return (
-      <div>
-        Game Collection: where the games are and it renders the cards.
-        {this.props.games.map(game => <GameCard game={game} key={game.id}/>)}
-      </div>
+      <CardDeck>
+          {this.props.games.map(game => <GameCard game={game} key={game.id} />)}
+      </CardDeck>
     );
   }
 }

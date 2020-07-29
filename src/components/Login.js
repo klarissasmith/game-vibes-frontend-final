@@ -2,12 +2,22 @@ import React from 'react'
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
+import Alert from "react-bootstrap/Alert";
 
 class Login extends React.Component{
-    render() {
+  handleSubmit = (e) => {
+    e.preventDefault()
+      
+  } 
+  
+  showAlert = () => {
+   
+  }
+  
+  render() {
         return (
-          <div>
-            <Form>
+          <div >
+            <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId="formGroupUsername">
                 <Form.Label>Username</Form.Label>
                 <Form.Control
@@ -18,7 +28,7 @@ class Login extends React.Component{
               <Form.Group controlId="formGroupPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
-                <Button as="input" type="submit" value="Submit" />
+                <Button as="input" type="submit" value="Submit" onClick={() => this.showAlert} />
               </Form.Group>
             </Form>
           </div>

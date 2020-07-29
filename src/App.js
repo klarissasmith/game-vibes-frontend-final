@@ -5,15 +5,21 @@ import MainPage from "./containers/MainPage";
 import GameCollection from "./components/GameCollection";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import Detail from "./components/Detail"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const URL = "http://localhost:3000/games";
+const ReviewsURL = "http://localhost:3000/reviews"
 
 class App extends React.Component {
   state = {
     games: [],
     reviews: [],
   };
+
+  // fetchReviews = () => {
+  //   fetch(ReviewsURL).then(response => response.json()).then(data => setState)
+  // }
 
   componentDidMount() {
     fetch(URL)
@@ -28,13 +34,15 @@ class App extends React.Component {
         <Router>
           <NavBar />
           <Route exact path="/" component={MainPage} />
-          <Route path='/games'
+          <Route exact path='/games'
             render={() => (
               <GameCollection games={this.state.games} />
             )}
           />
+          <Route path="/games/:id" render={(props) => <Detail {...props} games={this.state.games} reviews={this.state.reviews}/>} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={Login} />
+        
         </Router>
       </div>
     );
