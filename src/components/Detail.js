@@ -1,25 +1,56 @@
 import React from 'react'
 import ReviewForm from './ReviewForm'
+import Card from "react-bootstrap/Card";
+import CardDeck from "react-bootstrap/CardDeck";
 
 class Detail extends React.Component {
-    state = {
-        reviews: []
+    gameDetails = () => {
+        let id = this.props.match.params.id
+        let theGame = {title:"", image:"", story:""}
+        this.props.games.map(game => {
+            if (game.id == id) {
+                return theGame = game
+            }
+            else
+                return null
+        })
+        return theGame
     }
 
-    fetchReviews = () => {
-        fetch("http:localhost:3000/reviews").then(response => response.json()).then(data => this.setState({reviews: data}))
-    }
-
-    componentDidMount = () => {
-        this.fetchReviews()
+    reviewGetter = () => {
+        let id = this.props.match.params.id
+        let theReview = [{ summary: "", user_id: "", game_id: "" }]
+        this.props.reviews.map(review => {
+            if (review.id == id) {
+                return theReview = review
+            }
+            else
+                return null
+        })
+        return theReview
     }
     
     render() {
-     console.log(this.props.reviews, this.state)
-      return <div>
-          {this.props.reviews}
-          <ReviewForm/>
-    </div>;
+        const { title, image, story } = this.gameDetails()
+        const { summary, user_id, game_id } = this.reviewGetter()
+        console.log(this.props)
+        return (
+          <div>
+            <Card style={{ width: "30rem" }}>
+              <Card.Img variant="top" src={image} alt="game cover image" />
+              <Card.Body>
+                <Card.Title>{title}</Card.Title>
+                <Card.Text>{story}</Card.Text>
+              </Card.Body>
+            </Card>
+            <Card style={{ width: "30rem" }}>
+              <Card.Body>
+                <Card.Text>{summary}</Card.Text>
+              </Card.Body>
+            </Card>
+            <ReviewForm />
+          </div>
+        );
   }
 }
 

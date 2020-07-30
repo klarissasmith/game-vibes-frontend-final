@@ -14,7 +14,7 @@ class ReviewForm extends React.Component{
           <div>
             <Form onSubmit={this.handleSubmit}>
               <Form.Group >
-                <Form.Label>Review</Form.Label>
+                <Form.Label as="h3">Review:</Form.Label>
                 <Form.Control as="textarea" rows="3" name="summary"/>
               </Form.Group>
               <Button variant="primary" type="submit">
