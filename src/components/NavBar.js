@@ -1,27 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { BrowserRouter as Link } from "react-router-dom";
+import { LinkContainer } from 'react-router-bootstrap'
 
-class TopBar extends Component {
+class NavBar extends React.Component {
   render() {
     return (
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Link to="/">
+          <LinkContainer to="/">
             <Navbar.Brand href="/">GameVibes</Navbar.Brand>
-          </Link>
+          </LinkContainer>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <Link to="/allgames">
-                <Nav.Link href="/allgames">Games</Nav.Link>
-              </Link>
+              <LinkContainer to="/games">
+                <Nav.Link href="/games">Games</Nav.Link>
+              </LinkContainer>
               <Form inline>
                 <FormControl
                   type="text"
@@ -49,14 +48,14 @@ class TopBar extends Component {
               </NavDropdown> */}
             </Nav>
             <Nav>
-              <Link to="/signup">
+              <LinkContainer to="/signup">
                 <Nav.Link href="/signup">Sign Up</Nav.Link>
-              </Link>
-              <Link to="/signin">
-                <Nav.Link eventKey={2} href="signin">
+              </LinkContainer>
+              <LinkContainer to="/login">
+                <Nav.Link eventKey={2} href="/login">
                   Sign In
                 </Nav.Link>
-              </Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -64,5 +63,4 @@ class TopBar extends Component {
     );
   }
 }
-
-export default TopBar;
+export default NavBar;
