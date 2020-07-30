@@ -9,18 +9,18 @@ class GameCard extends React.Component{
         const {id, image, title, story} = this.props.game
         return (
           <div>
-              <Card as="card" row="3">
+            <Card style={{ width: "18rem" }}>
               <Link to={`/games/${id}`}>
-                <Card.Img src={""} alt="game cover image" />
+                <Card.Img variant="top" src={image} alt="game cover image" />
               </Link>
-                <Card.Body>
-                  <Card.Title>{title}</Card.Title>
-                  <Card.Text>{story}</Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                  <small className="text-muted">Last updated 3 mins ago</small>
-                </Card.Footer>
-              </Card>
+              <Card.Body>
+                <Card.Title>{title}</Card.Title>
+                <Card.Text>{story}</Card.Text>
+              </Card.Body>
+              <Card.Footer>
+                <small className="text-muted">Last updated 3 mins ago</small>
+              </Card.Footer>
+            </Card>
           </div>
         );
     }
