@@ -7,12 +7,9 @@ import Alert from "react-bootstrap/Alert";
 class Login extends React.Component{
   handleSubmit = (e) => {
     e.preventDefault()
-      
+    
   } 
   
-  showAlert = () => {
-   
-  }
   
   render() {
         return (

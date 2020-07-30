@@ -11,7 +11,7 @@ class GameCard extends React.Component{
           <div>
               <Card as="card" row="3">
               <Link to={`/games/${id}`}>
-                <Card.Img src={image} alt="game cover image" />
+                <Card.Img src={""} alt="game cover image" />
               </Link>
                 <Card.Body>
                   <Card.Title>{title}</Card.Title>

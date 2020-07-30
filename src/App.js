@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const URL = "http://localhost:3000/games";
 const ReviewsURL = "http://localhost:3000/reviews"
+const USERS = "http://localhost:3000/users"
 
 class App extends React.Component {
   state = {
@@ -18,14 +19,25 @@ class App extends React.Component {
   };
 
   // fetchReviews = () => {
-  //   fetch(ReviewsURL).then(response => response.json()).then(data => setState)
+  //   fetch(ReviewsURL).then(response => response.json()).then(data => setState({reviews: data}))
   // }
 
   componentDidMount() {
     fetch(URL)
       .then((response) => response.json())
-      .then((data) => this.setState({ games: data }));
+      .then((data) => this.setState({ games: data }))
+      .then((d) =>
+        fetch(ReviewsURL)
+          .then((response) => response.json())
+          .then((data) => this.setState({ reviews: data }))
+          .then((moreData) =>
+            fetch(USERS)
+              .then((response) => response.json())
+              .then(x => this.setState({ users: x }))
+          )
+      );
   }
+
 
   render() {
     console.log(this.state)
