@@ -9,21 +9,20 @@ class Login extends React.Component{
     e.preventDefault()
     
   } 
-  
-  
+
   render() {
         return (
           <div >
             <Form onSubmit={this.handleSubmit}>
               <Form.Group controlId="formGroupUsername">
-                <Form.Label>Username</Form.Label>
+                <Form.Label>Username:</Form.Label>
                 <Form.Control
                   type="username"
                   placeholder="Enter your username"
                 />
               </Form.Group>
               <Form.Group controlId="formGroupPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Password:</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
                 <Button as="input" type="submit" value="Submit" onClick={() => this.showAlert} />
               </Form.Group>

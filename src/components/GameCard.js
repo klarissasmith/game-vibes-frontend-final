@@ -11,11 +11,16 @@ class GameCard extends React.Component{
           <div>
             <Card style={{ width: "18rem" }}>
               <Link to={`/games/${id}`}>
-                <Card.Img variant="top" src={image} alt="game cover image" />
+                <Card.Img
+                  className="rounded-lg"
+                  variant="top"
+                  src={image}
+                  alt="game cover image"
+                />
               </Link>
               <Card.Body>
                 <Card.Title>{title}</Card.Title>
-                <Card.Text>{story}</Card.Text>
+                {/* <Card.Text>{story}</Card.Text> */}
               </Card.Body>
               <Card.Footer>
                 <small className="text-muted">Last updated 3 mins ago</small>

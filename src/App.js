@@ -5,7 +5,7 @@ import MainPage from "./containers/MainPage";
 import GameCollection from "./components/GameCollection";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import Detail from "./components/Detail"
+import Detail from "./containers/Detail"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const URL = "http://localhost:3000/games";
@@ -18,9 +18,6 @@ class App extends React.Component {
     reviews: [],
   };
 
-  // fetchReviews = () => {
-  //   fetch(ReviewsURL).then(response => response.json()).then(data => setState({reviews: data}))
-  // }
 
   componentDidMount() {
     fetch(URL)
