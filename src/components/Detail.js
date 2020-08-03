@@ -35,8 +35,9 @@ class Detail extends React.Component {
         const { summary, user_id, game_id } = this.reviewGetter()
         console.log(this.props)
         return (
-          <div>
-            <Card style={{ width: "30rem" }}>
+            <div>
+            <CardDeck>
+            <Card style={{ height: "90rem", width: "30rem" }}>
               <Card.Img variant="top" src={image} alt="game cover image" />
               <Card.Body>
                 <Card.Title>{title}</Card.Title>
@@ -48,6 +49,7 @@ class Detail extends React.Component {
                 <Card.Text>{summary}</Card.Text>
               </Card.Body>
             </Card>
+                </CardDeck>
             <ReviewForm />
           </div>
         );
