@@ -20,7 +20,7 @@ class GameCard extends React.Component{
               </Link>
               <Card.Body>
                 <Card.Title>{title}</Card.Title>
-                <Card.Text>{story}</Card.Text>
+                {/* <Card.Text>{story}</Card.Text> */}
               </Card.Body>
               <Card.Footer>
                 <small className="text-muted">Last updated 3 mins ago</small>
