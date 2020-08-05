@@ -10,12 +10,15 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const URL = "http://localhost:3000/games";
 const ReviewsURL = "http://localhost:3000/reviews"
-const USERS = "http://localhost:3000/users"
 
 class App extends React.Component {
   state = {
     games: [],
     reviews: [],
+    currentUser: {
+      username: "", 
+      password: "",
+    }
   };
 
 
@@ -27,17 +30,12 @@ class App extends React.Component {
         fetch(ReviewsURL)
           .then((response) => response.json())
           .then((data) => this.setState({ reviews: data }))
-          .then((moreData) =>
-            fetch(USERS)
-              .then((response) => response.json())
-              .then(x => this.setState({ users: x }))
-          )
       );
   }
 
 
   render() {
-    console.log(this.state.reviews)
+
     return (
       <div>
         <Router>
@@ -49,7 +47,7 @@ class App extends React.Component {
             )}
           />
           <Route path="/games/:id" render={(props) => <Detail {...props} games={this.state.games} reviews={this.state.reviews}/>} />
-          <Route path="/signup" component={SignUp} />
+          <Route path="/signup" render={(props) => <SignUp {...props} currentUser={this.state.currentUser}/>} />
           <Route path="/login" component={Login} />
         
         </Router>
