@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 const URL = "http://localhost:3000/games";
 const ReviewsURL = "http://localhost:3000/reviews"
 const UsersURL = "http://localhost:3000/users"
+const LoginURL = "http://localhost:3000/login"
 
 class App extends React.Component {
   state = {
@@ -45,6 +46,16 @@ class App extends React.Component {
     })
   }
 
+  loginFetch = (currentUser) => {
+    fetch(LoginURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(currentUser)
+    })
+  }
+
   render() {
 
     return (
@@ -52,6 +63,11 @@ class App extends React.Component {
         <Router>
           <NavBar />
           <Route exact path="/" component={MainPage} />
+          <Route exact path='/'
+            render={() => (
+              <GameCollection games={this.state.games} />
+            )}
+          />
           <Route exact path='/games'
             render={() => (
               <GameCollection games={this.state.games} />
@@ -59,7 +75,7 @@ class App extends React.Component {
           />
           <Route path="/games/:id" render={(props) => <Detail {...props} games={this.state.games} reviews={this.state.reviews}/>} />
           <Route path="/signup" render={(props) => <SignUp {...props} createNewUser={this.createNewUser} />} />
-          <Route path="/login" component={Login} />
+          <Route path="/login" render={(props) => <Login {...props} loginFetch={this.loginFetch} />} />
         
         </Router>
       </div>
