@@ -16,16 +16,15 @@ class SignUp extends React.Component{
     const newUserData = this.state.fields
     // fetch goes here to post form data to the backend
     this.props.createNewUser(newUserData)
+    this.props.history.push("/login");
   }
 
   handleChange = (event) => {
-    console.log(event.target.value)
     const newUser = {...this.state.fields, [event.target.name]: event.target.value}
     this.setState({ fields: newUser })
     
   }
   render() {
-    console.log(this.state)
         return (
           <div>
             <Form onSubmit={this.handleSubmit} >

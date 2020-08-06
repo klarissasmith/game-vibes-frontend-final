@@ -23,20 +23,19 @@ class App extends React.Component {
     // }
   };
 
-
+// FETCHES FOR CONTENT - GAMES, REVIEWS
   componentDidMount() {
     fetch(URL)
       .then((response) => response.json())
       .then((data) => this.setState({ games: data }))
-      .then((d) =>
+      .then((reviews) =>
         fetch(ReviewsURL)
           .then((response) => response.json())
           .then((data) => this.setState({ reviews: data }))
       );
   }
-
+//FETCHES FOR SIGN UP AND LOGIN
   createNewUser = (user) => {
-    // console.log(user)
     fetch(UsersURL, {
       method: "POST",
       headers: {
@@ -56,6 +55,7 @@ class App extends React.Component {
     })
   }
 
+//THE APP
   render() {
 
     return (

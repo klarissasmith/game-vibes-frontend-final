@@ -23,10 +23,11 @@ class Login extends React.Component{
     const currentUserData = this.state.formFields
     //fetch goes here for Login stuff???
     this.props.loginFetch(currentUserData)
+    this.props.history.push("/games")
   } 
 
   render() {
-    console.log(this.state.formFields)
+    // console.log(this.props)
         return (
           <div >
             <Form onSubmit={this.handleSubmit}>
