@@ -17,10 +17,7 @@ class App extends React.Component {
   state = {
     games: [],
     reviews: [],
-    // currentUser: {
-    //   username: "", 
-    //   password: "",
-    // }
+    isLoggedIn: false
   };
 
 // FETCHES FOR CONTENT - GAMES, REVIEWS
@@ -61,22 +58,40 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <NavBar />
+          <NavBar isLoggedIn={this.state.isLoggedIn} />
           <Route exact path="/" component={MainPage} />
-          <Route exact path='/'
-            render={() => (
-              <GameCollection games={this.state.games} />
+          <Route
+            exact
+            path="/"
+            render={() => <GameCollection games={this.state.games} />}
+          />
+          <Route
+            exact
+            path="/games"
+            render={() => <GameCollection games={this.state.games} />}
+          />
+          <Route
+            path="/games/:id"
+            render={(props) => (
+              <Detail
+                {...props}
+                games={this.state.games}
+                reviews={this.state.reviews}
+              />
             )}
           />
-          <Route exact path='/games'
-            render={() => (
-              <GameCollection games={this.state.games} />
+          <Route
+            path="/signup"
+            render={(props) => (
+              <SignUp {...props} createNewUser={this.createNewUser} />
             )}
           />
-          <Route path="/games/:id" render={(props) => <Detail {...props} games={this.state.games} reviews={this.state.reviews}/>} />
-          <Route path="/signup" render={(props) => <SignUp {...props} createNewUser={this.createNewUser} />} />
-          <Route path="/login" render={(props) => <Login {...props} loginFetch={this.loginFetch} />} />
-        
+          <Route
+            path="/login"
+            render={(props) => (
+              <Login {...props} loginFetch={this.loginFetch} />
+            )}
+          />
         </Router>
       </div>
     );

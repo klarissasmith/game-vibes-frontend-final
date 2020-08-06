@@ -13,7 +13,6 @@ class Login extends React.Component{
   }
   
   handleChange = (event) => {
-    console.log(event.target.value)
     const currentUser = { ...this.state.formFields, [event.target.name]: event.target.value }
     this.setState({formFields: currentUser})
   }
@@ -21,7 +20,7 @@ class Login extends React.Component{
   handleSubmit = (e) => {
     e.preventDefault()
     const currentUserData = this.state.formFields
-    //fetch goes here for Login stuff???
+    //THE FETCH FOR LOGIN TO SEND THE DATA FROM HERE TO APP
     this.props.loginFetch(currentUserData)
     this.props.history.push("/games")
   } 

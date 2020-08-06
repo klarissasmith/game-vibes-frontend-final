@@ -8,7 +8,13 @@ import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from 'react-router-bootstrap'
 
 class NavBar extends React.Component {
+  changeBtn = (props) => {
+    console.log(this.props.isLoggedin)
+    this.props.isLoggedin ? console.log("Yes") : console.log("NO")
+  }
+  
   render() {
+    console.log(this.props)
     return (
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -52,7 +58,7 @@ class NavBar extends React.Component {
                 <Nav.Link href="/signup">Sign Up</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/login">
-                <Nav.Link eventKey={2} href="/login">
+                <Nav.Link  href="/login">
                   Login
                 </Nav.Link>
               </LinkContainer>
