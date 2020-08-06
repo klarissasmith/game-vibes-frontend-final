@@ -19,16 +19,20 @@ class Detail extends React.Component {
     }
 
     reviewGetter = () => {
-        let id = this.props.match.params.id
-        let theReview = [{ summary: "", user_id: "", game_id: "" }]
+      let theReview = [{ summary: "", user_id: "", game_id: "" }]
+      const id = this.props.match.params.id
+      let reviews = this.props.reviews
+      console.log(reviews)
+      for (let i = 0; i < reviews.length; i++) {
         this.props.reviews.map(review => {
-            if (review.id == id) {
-                return theReview = review
-            }
-            else
-                return null
+          if (review.id == id) {
+            return theReview = review
+          }
+          else
+            return null
         })
-        return theReview
+      }
+      return theReview
     }
     
     render() {
@@ -39,16 +43,24 @@ class Detail extends React.Component {
           <div>
             
             <CardDeck>
-              <Card style={{ height: "10rem" }, {width: "50rem" }}>
-                <Card.Img variant="top" src={image} alt="game cover image" />
-                <Card.Body>
-                  <Card.Title>{title}</Card.Title>
+              <Card style={{ height: "5rem" }, {width: "50rem" }}>
+                <Card.Img style={{width: "10rem"}} variant="top" src={image} alt="game cover image" />
+                <Card.Body >
+                  <Card.Title>
+                    <h1>{title}</h1>
+                  </Card.Title>
                   <Card.Text>{story}</Card.Text>
                 </Card.Body>
               </Card>
   
             </CardDeck>
             <ReviewForm />
+            <Card border="dark">
+            <h1> 
+              This is where the reviews belong
+            </h1>
+
+            </Card>
           </div>
         );
   }
@@ -105,4 +117,17 @@ class Detail extends React.Component {
     );
   }
 }
+
+reviewGetter = () => {
+        let id = this.props.match.params.id
+        let theReview = [{ summary: "", user_id: "", game_id: "" }]
+        this.props.reviews.map(review => {
+            if (review.id == id) {
+                return theReview = review
+            }
+            else
+                return null
+        })
+        return theReview
+    }
 */
