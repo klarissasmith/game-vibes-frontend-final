@@ -19,7 +19,7 @@ class NavBar extends React.Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <LinkContainer to="/games">
-                <Nav.Link href="/games">Games</Nav.Link>
+                <Nav.Link href="/games">Browse</Nav.Link>
               </LinkContainer>
               <Form inline>
                 <FormControl
@@ -53,7 +53,7 @@ class NavBar extends React.Component {
               </LinkContainer>
               <LinkContainer to="/login">
                 <Nav.Link eventKey={2} href="/login">
-                  Sign In
+                  Login
                 </Nav.Link>
               </LinkContainer>
             </Nav>
