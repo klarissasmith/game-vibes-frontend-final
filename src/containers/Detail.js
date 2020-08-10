@@ -1,62 +1,11 @@
-import React from 'react'
-import ReviewForm from '../components/ReviewForm'
+import React from "react";
+import ReviewForm from "../components/ReviewForm";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import ListGroup from "react-bootstrap/ListGroup";
+import ReviewCollection from "../components/ReviewCollection";
+import ReviewCard from "../components/ReviewCard";
 
-class Detail extends React.Component {
-    gameDetails = () => {
-        let id = this.props.match.params.id
-        let theGame = {title:"", image:"", story:""}
-        this.props.games.map(game => {
-            if (game.id == id) {
-                return theGame = game
-            }
-            else
-                return null
-        })
-        return theGame
-    }
-
-    reviewGetter = () => {
-        let id = this.props.match.params.id
-        let theReview = [{ summary: "", user_id: "", game_id: "" }]
-        this.props.reviews.map(review => {
-            if (review.id == id) {
-                return theReview = review
-            }
-            else
-                return null
-        })
-        return theReview
-    }
-    
-    render() {
-        const { title, image, story } = this.gameDetails()
-        const { summary, user_id, game_id } = this.reviewGetter()
-       
-        return (
-          <div>
-            
-            <CardDeck>
-              <Card style={{ height: "10rem" }, {width: "50rem" }}>
-                <Card.Img variant="top" src={image} alt="game cover image" />
-                <Card.Body>
-                  <Card.Title>{title}</Card.Title>
-                  <Card.Text>{story}</Card.Text>
-                </Card.Body>
-              </Card>
-  
-            </CardDeck>
-            <ReviewForm />
-          </div>
-        );
-  }
-}
-
-export default Detail
-
-/*
 class Detail extends React.Component {
   gameDetails = () => {
     let id = this.props.match.params.id;
@@ -68,41 +17,48 @@ class Detail extends React.Component {
     });
     return theGame;
   };
+  // 0: game_id: 2; id: 1; summary: "This is the greatest game of all time. Don't quote me on that."; user_id: 3;
 
-  reviewGetter = () => {
-    let id = this.props.match.params.id;
-    let theReview = [{ summary: "", user_id: "", game_id: "" }];
-    this.props.reviews.map((review) => {
-      if (review.id == id) {
-        return (theReview = review);
-      } else return null;
-    });
-    return theReview;
-  };
-
+  
+  // getSpecificReviews = () => {
+  //   const urlId = this.props.match.params.id;
+  //   const gameReviews = this.props.reviews.filter((element) => element.game_id == urlId);
+    
+  //   return gameReviews.map(review => (<ReviewCard review={[review]} key={review.id}/>))
+  // }
+  filterReviews = () => {
+    
+    
+  }
   render() {
     const { title, image, story } = this.gameDetails();
-    const { summary, user_id, game_id } = this.reviewGetter();
-    console.log(this.props);
+    const urlId = this.props.match.params.id
+    const gameReviews = this.props.reviews.filter((element) => element.game_id == urlId)
     return (
       <div>
         <CardDeck>
-          <Card style={{ height: "90rem", width: "30rem" }}>
-            <Card.Img variant="top" src={image} alt="game cover image" />
+          <Card style={({ height: "5rem" }, { width: "50rem" })}>
+            <Card.Img
+              style={{ width: "10rem" }}
+              variant="top"
+              src={image}
+              alt="game cover image"
+            />
             <Card.Body>
-              <Card.Title>{title}</Card.Title>
+              <Card.Title>
+                <h1>{title}</h1>
+              </Card.Title>
               <Card.Text>{story}</Card.Text>
             </Card.Body>
           </Card>
-          <Card style={{ width: "30rem" }}>
-            <Card.Body>
-              <Card.Text>{summary}</Card.Text>
-            </Card.Body>
-          </Card>
         </CardDeck>
-        <ReviewForm />
+        <ReviewForm game_id={this.props.match.params.id} />
+        <ListGroup border="dark">
+         <ReviewCollection gameReviews={gameReviews}/>
+        </ListGroup>
       </div>
     );
   }
 }
-*/
+
+export default Detail;
