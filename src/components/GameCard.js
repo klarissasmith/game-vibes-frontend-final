@@ -11,6 +11,7 @@ class GameCard extends React.Component{
           <div>
             <Card style={{ width: "18rem" }}>
               <Link to={`/games/${id}`}>
+                {/* <Card.Header> {title}</Card.Header> */}
                 <Card.Img
                   className="rounded-lg"
                   variant="top"

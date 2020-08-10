@@ -1,5 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import CardDeck from "react-bootstrap/CardDeck";
+import CardGroup from "react-bootstrap/CardGroup";
 import NavBar from "./components/NavBar";
 import MainPage from "./containers/MainPage";
 import GameCollection from "./components/GameCollection";
@@ -7,6 +9,7 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Detail from "./containers/Detail"
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 const URL = "http://localhost:3000/games";
 const ReviewsURL = "http://localhost:3000/reviews"
@@ -31,7 +34,7 @@ class App extends React.Component {
           .then((data) => this.setState({ reviews: data }))
       );
   }
-//FETCHES FOR SIGN UP AND LOGIN
+//POST FETCHES FOR SIGN UP AND LOGIN
   createNewUser = (user) => {
     fetch(UsersURL, {
       method: "POST",
@@ -52,6 +55,10 @@ class App extends React.Component {
     })
   }
 
+  createNewReview = (review) => {
+  
+  }
+
 //THE APP
   render() {
 
@@ -63,7 +70,7 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            render={() => <GameCollection games={this.state.games} />}
+            render={() => <CardGroup> <GameCollection games={this.state.games} /> </CardGroup>}
           />
           <Route
             exact

@@ -5,11 +5,6 @@ import CardGroup from "react-bootstrap/CardGroup";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class GameCollection extends React.Component {
-  renderGames = () => {
-    return this.props.games.map((games, index) => {
-      return <GameCard games={games} key={index} />;
-    });
-  };
     render() {
     return (
       <CardDeck>
