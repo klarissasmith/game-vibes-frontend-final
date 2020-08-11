@@ -14,6 +14,7 @@ class ReviewCard extends React.Component{
               <Card.Body>
                 {summary}
               </Card.Body>
+              <button className="primarybutton"> Delete </button>
             </Card>
           </div>
         );

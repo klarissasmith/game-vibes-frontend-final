@@ -56,7 +56,13 @@ class App extends React.Component {
   }
 
   createNewReview = (review) => {
-  
+    fetch(ReviewsURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(review)
+   })
   }
 
 //THE APP
@@ -84,6 +90,7 @@ class App extends React.Component {
                 {...props}
                 games={this.state.games}
                 reviews={this.state.reviews}
+                createNewReview={this.createNewReview}
               />
             )}
           />
