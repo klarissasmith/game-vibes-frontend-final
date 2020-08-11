@@ -1,8 +1,8 @@
-.primarybutton {
+.primary-button {
   background-color: #5C4AEA;
   position: static;
   width: 124px;
-  height: 20px;
+  height: 50px;
   left: 32px;
   top: 12px;
 
@@ -21,7 +21,7 @@
 
   flex: none;
   order: 0;
-  align-self: center;
+  align-self: left;
   margin: 10px 0px;
 }
 
@@ -49,4 +49,31 @@ line-height: 47px;
 letter-spacing: 0.05em;
 
 color: #5C4AEA;
+}
+
+.secondary-button {
+  background-color: #5C4AEA;
+  position: static;
+  width: 124px;
+  height: 50px;
+  left: 32px;
+  top: 12px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 20px;
+  /* identical to box height, or 111% */
+
+
+  color: #FFFFFF;
+
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  align-self: left;
+  margin: 10px 0px;
 }

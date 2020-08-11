@@ -26,12 +26,8 @@ class Detail extends React.Component {
     
   //   return gameReviews.map(review => (<ReviewCard review={[review]} key={review.id}/>))
   // }
-  filterReviews = () => {
-    
-    
-  }
+
   render() {
-    console.log(this.props.reviews)
     const { title, image, story } = this.gameDetails();
     const urlId = this.props.match.params.id
     const gameReviews = this.props.reviews.filter((element) => element.game_id == urlId)
@@ -55,7 +51,7 @@ class Detail extends React.Component {
         </CardDeck>
         <ReviewForm game_id={parseInt(this.props.match.params.id)} createNewReview={this.props.createNewReview}/>
         <ListGroup border="dark">
-          <ReviewCollection gameReviews={gameReviews} />
+          <ReviewCollection gameReviews={gameReviews}/>
         </ListGroup>
       </div>
     );
