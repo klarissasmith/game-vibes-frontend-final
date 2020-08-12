@@ -23,7 +23,7 @@ class App extends React.Component {
     isLoggedIn: false
   };
 
-// FETCHES FOR CONTENT - GAMES, REVIEWS
+  // FETCHES FOR CONTENT - GAMES, REVIEWS
   componentDidMount() {
     fetch(URL)
       .then((response) => response.json())
@@ -34,7 +34,7 @@ class App extends React.Component {
           .then((data) => this.setState({ reviews: data }))
       );
   }
-//POST FETCHES FOR SIGN UP AND LOGIN
+  //POST FETCHES FOR SIGN UP AND LOGIN
   createNewUser = (user) => {
     fetch(UsersURL, {
       method: "POST",
@@ -54,7 +54,23 @@ class App extends React.Component {
       body: JSON.stringify(currentUser)
     })
   }
+  
+  login = (data) => {
+    return fetch("http://localhost:3000/auth", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: token()
+      },
+      body: JSON.stringify(data)
+    }).then(response => response.json())
+  }
 
+  logout = () => {
+
+  }
+  
   createNewReview = (review) => {
     fetch(ReviewsURL, {
       method: "POST",
