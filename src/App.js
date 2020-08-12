@@ -55,17 +55,17 @@ class App extends React.Component {
     })
   }
   
-  login = (data) => {
-    return fetch("http://localhost:3000/auth", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: token()
-      },
-      body: JSON.stringify(data)
-    }).then(response => response.json())
-  }
+  // login = (data) => {
+  //   return fetch("http://localhost:3000/auth", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //       Authorization: token()
+  //     },
+  //     body: JSON.stringify(data)
+  //   }).then(response => response.json())
+  // }
 
   logout = () => {
 
