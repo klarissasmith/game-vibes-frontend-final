@@ -32,7 +32,7 @@ class ReviewForm extends React.Component {
       <div>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            <Form.Label as="h3">Review:</Form.Label>
+            <Form.Label as="h3">Write a Review:</Form.Label>
             <Form.Control
               as="textarea"
               rows="3"
