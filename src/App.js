@@ -11,30 +11,39 @@ import Detail from "./containers/Detail"
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
-const URL = "http://localhost:3000/games";
+const GamesURL = "http://localhost:3000/games";
 const ReviewsURL = "http://localhost:3000/reviews"
 const UsersURL = "http://localhost:3000/users"
 const LoginURL = "http://localhost:3000/login"
+
+const token = () => localStorage.getItem("token")
 
 class App extends React.Component {
   state = {
     games: [],
     reviews: [],
-    isLoggedIn: false
+    auth: {
+      user: {
+        
+      }
+    }
   };
-
-// FETCHES FOR CONTENT - GAMES, REVIEWS
+  
+  // FETCHES FOR CONTENT - GAMES, REVIEWS
   componentDidMount() {
-    fetch(URL)
-      .then((response) => response.json())
-      .then((data) => this.setState({ games: data }))
-      .then((reviews) =>
-        fetch(ReviewsURL)
-          .then((response) => response.json())
-          .then((data) => this.setState({ reviews: data }))
-      );
+    fetch(GamesURL)
+    .then((response) => response.json())
+    .then((data) => this.setState({ games: data }))
+    .then((reviews) =>
+    fetch(ReviewsURL)
+    .then((response) => response.json())
+    .then((data) => this.setState({ reviews: data }))
+    );
+    // if (token) {
+    //   this.getCurrentUser().then(user => {this.setState({auth:{...this.state.auth, user: {id: user.id, username:user.username}}})})
+    // }
   }
-//POST FETCHES FOR SIGN UP AND LOGIN
+  //POST FETCHES FOR SIGN UP AND LOGIN
   createNewUser = (user) => {
     fetch(UsersURL, {
       method: "POST",
@@ -44,19 +53,50 @@ class App extends React.Component {
       body: JSON.stringify(user)
     })
   }
+  
 
   loginFetch = (currentUser) => {
-    fetch(LoginURL, {
+    return fetch(LoginURL, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: token()
       },
       body: JSON.stringify(currentUser)
-    })
+    }).then(response => response.json())
+  }
+  
+  login = (data) => {
+    console.log(data)
+    localStorage.setItem("token", data.token)
+    this.setState({auth:{...this.state.auth, user:{id: data.id, username: data.username}}})
+    console.log(this.state.auth.user)
   }
 
-  createNewReview = (review) => {
+  // getCurrentUser = () => {
+  //   return fetch("http://localhost:3000/current_user", {
+  //     headers: {
+  //       "Content-Type": "application/json", 
+  //       Accept: "application/json",
+  //       Authorization: token()
+  //     },
+  //   }).then(response => response.json())
+  // }
+
+  logout = () => {
+
+  }
   
+  createNewReview = (review) => {
+    fetch(ReviewsURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ review })
+   })
   }
 
 //THE APP
@@ -65,7 +105,7 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <NavBar isLoggedIn={this.state.isLoggedIn} />
+          <NavBar handleLogout={this.logout} />
           <Route exact path="/" component={MainPage} />
           <Route
             exact
@@ -82,8 +122,10 @@ class App extends React.Component {
             render={(props) => (
               <Detail
                 {...props}
+                auth={this.state.auth}
                 games={this.state.games}
                 reviews={this.state.reviews}
+                createNewReview={this.createNewReview}
               />
             )}
           />
@@ -96,7 +138,7 @@ class App extends React.Component {
           <Route
             path="/login"
             render={(props) => (
-              <Login {...props} loginFetch={this.loginFetch} />
+              <Login {...props} loginFetch={this.loginFetch} onLogin={this.login}/>
             )}
           />
         </Router>

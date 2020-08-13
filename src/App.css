@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+.primary-button {
+  background-color: #5C4AEA;
+  position: static;
+  width: 124px;
+  height: 50px;
+  left: 32px;
+  top: 12px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 20px;
+  /* identical to box height, or 111% */
+
+
+  color: #FFFFFF;
+
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  align-self: left;
+  margin: 10px 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.primary {
+  background-color: #5C4AEA;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.username {
+
+position: absolute;
+width: 199px;
+height: 47px;
+left: 121px;
+top: 164px;
+
+/* H1 */
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 900;
+font-size: 40px;
+line-height: 47px;
+/* identical to box height */
+
+letter-spacing: 0.05em;
+
+color: #5C4AEA;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.secondary-button {
+  background-color: #5C4AEA;
+  position: static;
+  width: 124px;
+  height: 50px;
+  left: 32px;
+  top: 12px;
 
-.App-link {
-  color: #61dafb;
-}
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 20px;
+  /* identical to box height, or 111% */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+  color: #FFFFFF;
+
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  align-self: left;
+  margin: 10px 0px;
 }

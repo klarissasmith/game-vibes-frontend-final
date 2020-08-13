@@ -6,7 +6,7 @@ class ReviewForm extends React.Component {
   state = {
     fields: {
       summary: "",
-      user_id: "",
+      user_id: 4,
       game_id: this.props.game_id,
     },
   };
@@ -16,6 +16,7 @@ class ReviewForm extends React.Component {
       ...this.state.fields,
       [event.target.name]: event.target.value,
     };
+    console.log({ fields: newReview })
     this.setState({ fields: newReview });
   };
 
@@ -27,7 +28,6 @@ class ReviewForm extends React.Component {
   };
 
   render() {
-    // console.log(this.state.fields)
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>

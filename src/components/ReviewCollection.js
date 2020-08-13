@@ -4,15 +4,27 @@ import CardDeck from "react-bootstrap/CardDeck";
 import CardGroup from "react-bootstrap/CardGroup";
 import ReviewCard from "./ReviewCard"
 
-class ReviewCollection extends React.Component{
-    render() {
-        console.log(this.props.gameReviews)
-        return (
-            <div>
-                {this.props.gameReviews.map(review => <ReviewCard review={review} key={review.id}/>)}
-            </div>
-        )
-    }
+class ReviewCollection extends React.Component {
+    deleteReview = (review) => {
+    
+    fetch(`http://localhost:3000/reviews/${review}`, {
+      method: "DELETE",
+    }).then((response) => response.json());
+  };
+    
+  render() {
+    return (
+      <div>
+        {this.props.gameReviews.map((review) => (
+          <ReviewCard
+            review={review}
+            key={review.id}
+            deleteReview={this.deleteReview}
+          />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default ReviewCollection

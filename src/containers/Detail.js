@@ -8,7 +8,7 @@ import ReviewCard from "../components/ReviewCard";
 
 class Detail extends React.Component {
   gameDetails = () => {
-    let id = this.props.match.params.id;
+    let id = parseInt(this.props.match.params.id);
     let theGame = { title: "", image: "", story: "" };
     this.props.games.map((game) => {
       if (game.id == id) {
@@ -26,10 +26,7 @@ class Detail extends React.Component {
     
   //   return gameReviews.map(review => (<ReviewCard review={[review]} key={review.id}/>))
   // }
-  filterReviews = () => {
-    
-    
-  }
+
   render() {
     const { title, image, story } = this.gameDetails();
     const urlId = this.props.match.params.id
@@ -52,9 +49,9 @@ class Detail extends React.Component {
             </Card.Body>
           </Card>
         </CardDeck>
-        <ReviewForm game_id={this.props.match.params.id} />
+        <ReviewForm game_id={parseInt(this.props.match.params.id)} createNewReview={this.props.createNewReview}/>
         <ListGroup border="dark">
-         <ReviewCollection gameReviews={gameReviews}/>
+          <ReviewCollection gameReviews={gameReviews}/>
         </ListGroup>
       </div>
     );
