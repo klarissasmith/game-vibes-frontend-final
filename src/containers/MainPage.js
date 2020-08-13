@@ -10,19 +10,20 @@ class MainPage extends React.Component{
     render() {
         return (
           <div>
-            <Jumbotron fluid >
+            <Jumbotron
+              fluid
+            >
               <Container>
-
                 <h1>Game Vibes</h1>
-          
-              <p>
-                We give you the deets to find the games you love
-              </p>
-              <p>
-                <Link to="/signup">
-                  <Button className="search-button" variant="primary">Sign Up</Button>
-                </Link>
-              </p>
+
+                <p>We give you the deets to find the games you love</p>
+                <p>
+                  <Link to="/signup">
+                    <Button className="search-button" variant="primary">
+                      Sign Up
+                    </Button>
+                  </Link>
+                </p>
               </Container>
             </Jumbotron>
           </div>
