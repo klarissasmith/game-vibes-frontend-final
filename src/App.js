@@ -99,6 +99,11 @@ class App extends React.Component {
    }).then(this.setState({reviews: [...this.state.reviews, {...review}]}))
 }
   
+  removeReview = (reviewId) => {
+    const updatedReviews = this.state.reviews.filter(review => review.id !== reviewId)
+    console.log(updatedReviews)
+    this.setState({reviews: updatedReviews })
+  }
 /*
 state = {
     games: [],
@@ -138,6 +143,7 @@ state = {
                 games={this.state.games}
                 reviews={this.state.reviews}
                 createNewReview={this.createNewReview}
+                removeReview={this.removeReview}
               />
             )}
           />
