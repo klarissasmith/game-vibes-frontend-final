@@ -70,7 +70,7 @@ class App extends React.Component {
   login = (data) => {
     console.log(data)
     localStorage.setItem("token", data.token)
-    this.setState({auth:{...this.state.auth, user:{id: data.id, username: data.username}}})
+    this.setState({auth:{...this.state.auth, user:{user_id: data.user_id, username: data.username}}})
     console.log(this.state.auth.user)
   }
 

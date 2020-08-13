@@ -8,11 +8,7 @@ import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from 'react-router-bootstrap'
 
 class NavBar extends React.Component {
-  
-  changeBtn = (props) => {
-    
-    
-  }
+
   
   render() {
     // const currentUser = this.props.currentUser

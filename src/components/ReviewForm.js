@@ -16,7 +16,6 @@ class ReviewForm extends React.Component {
       ...this.state.fields,
       [event.target.name]: event.target.value,
     };
-    console.log({ fields: newReview })
     this.setState({ fields: newReview });
   };
 
