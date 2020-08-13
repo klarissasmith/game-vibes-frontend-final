@@ -24,9 +24,10 @@ class App extends React.Component {
     reviews: [],
     auth: {
       user: {
-        
+        isLoggedIn: false
       }
-    }
+    },
+    
   };
   
   // FETCHES FOR CONTENT - GAMES, REVIEWS
@@ -70,7 +71,7 @@ class App extends React.Component {
   login = (data) => {
     console.log(data)
     localStorage.setItem("token", data.token)
-    this.setState({auth:{...this.state.auth, user:{id: data.id, username: data.username}}})
+    this.setState({ auth: { ...this.state.auth, user: { id: data.user_id, username: data.username, isLoggedIn: true}}})
     console.log(this.state.auth.user)
   }
 
@@ -122,7 +123,7 @@ state = {
     return (
       <div>
         <Router>
-          <NavBar handleLogout={this.logout} />
+          <NavBar handleLogout={this.logout} currentUser={this.state.auth.user}/>
           <Route exact path="/" component={MainPage} />
           <Route
             exact
@@ -159,6 +160,7 @@ state = {
               <Login {...props} loginFetch={this.loginFetch} onLogin={this.login}/>
             )}
           />
+        
         </Router>
       </div>
     );
