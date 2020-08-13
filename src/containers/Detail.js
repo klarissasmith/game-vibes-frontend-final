@@ -30,7 +30,8 @@ class Detail extends React.Component {
   render() {
     const { title, image, story } = this.gameDetails();
     const urlId = this.props.match.params.id
-    const gameReviews = this.props.reviews.filter((element) => element.game_id == urlId)
+    let gameReviews = this.props.reviews.filter((element) => element.game_id == urlId)
+    
     return (
       <div>
         <CardDeck>
@@ -50,7 +51,7 @@ class Detail extends React.Component {
           </Card>
         </CardDeck>
         <ListGroup border="dark">
-          <ReviewCollection gameReviews={gameReviews}/>
+          <ReviewCollection gameReviews={gameReviews} removeReview={this.props.removeReview}/>
         </ListGroup>
         <ReviewForm game_id={parseInt(this.props.match.params.id)} createNewReview={this.props.createNewReview}/>
       </div>

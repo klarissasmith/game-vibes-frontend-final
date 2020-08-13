@@ -25,6 +25,7 @@ class ReviewForm extends React.Component {
     const newReviewData = this.state.fields;
     // fetch goes here to post form data to the backend
     this.props.createNewReview(newReviewData);
+    e.target.summary.value = " "
   };
 
   render() {

@@ -5,12 +5,11 @@ import CardGroup from "react-bootstrap/CardGroup";
 import ReviewCard from "./ReviewCard"
 
 class ReviewCollection extends React.Component {
-    deleteReview = (review) => {
-    
-    fetch(`http://localhost:3000/reviews/${review}`, {
+  deleteReview = (reviewId) => {
+    fetch(`http://localhost:3000/reviews/${reviewId}`, {
       method: "DELETE",
-    }).then((response) => response.json());
-  };
+    }).then((response) => response.json()).then(this.props.removeReview(reviewId));
+  }
     
   render() {
     return (
