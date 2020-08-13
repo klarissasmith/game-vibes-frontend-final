@@ -39,9 +39,9 @@ class App extends React.Component {
     .then((response) => response.json())
     .then((data) => this.setState({ reviews: data }))
     );
-    if (token) {
-      this.getCurrentUser().then(user => {this.setState({auth:{...this.state.auth, user: {id: user.id, username:user.username}}})})
-    }
+    // if (token) {
+    //   this.getCurrentUser().then(user => {this.setState({auth:{...this.state.auth, user: {id: user.id, username:user.username}}})})
+    // }
   }
   //POST FETCHES FOR SIGN UP AND LOGIN
   createNewUser = (user) => {
@@ -74,15 +74,15 @@ class App extends React.Component {
     console.log(this.state.auth.user)
   }
 
-  getCurrentUser = () => {
-    return fetch("http://localhost:3000/current_user", {
-      headers: {
-        "Content-Type": "application/json", 
-        Accept: "application/json",
-        Authorization: token()
-      },
-    }).then(response => response.json())
-  }
+  // getCurrentUser = () => {
+  //   return fetch("http://localhost:3000/current_user", {
+  //     headers: {
+  //       "Content-Type": "application/json", 
+  //       Accept: "application/json",
+  //       Authorization: token()
+  //     },
+  //   }).then(response => response.json())
+  // }
 
   logout = () => {
 
@@ -105,7 +105,7 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <NavBar currentUser={this.state.auth.user} handleLogout={this.logout} />
+          <NavBar handleLogout={this.logout} />
           <Route exact path="/" component={MainPage} />
           <Route
             exact
@@ -126,7 +126,6 @@ class App extends React.Component {
                 games={this.state.games}
                 reviews={this.state.reviews}
                 createNewReview={this.createNewReview}
-                currentUser={this.getCurrentUser}
               />
             )}
           />

@@ -6,7 +6,7 @@ class ReviewForm extends React.Component {
   state = {
     fields: {
       summary: "",
-      user_id: this.props.currentUser,
+      user_id: 4,
       game_id: this.props.game_id,
     },
   };

@@ -15,8 +15,8 @@ class NavBar extends React.Component {
   }
   
   render() {
-    const currentUser = this.props.currentUser
-    const loggedIn = !!this.props.currentUser.id
+    // const currentUser = this.props.currentUser
+    // const loggedIn = !!this.props.currentUser.id
     // console.log(this.props.currentUser)
     return (
       <div>
@@ -60,13 +60,13 @@ class NavBar extends React.Component {
               <LinkContainer to="/signup">
                 <Nav.Link href="/signup">Sign Up</Nav.Link>
               </LinkContainer>
-              {loggedIn ? <LinkContainer> <Nav.Link> Logout </Nav.Link></LinkContainer> :
+              
                 <LinkContainer to="/login">
                   <Nav.Link href="/login">
                     Login
                 </Nav.Link>
                 </LinkContainer>
-              }
+              
 
             </Nav>
           </Navbar.Collapse>
