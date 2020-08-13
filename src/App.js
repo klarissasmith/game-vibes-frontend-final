@@ -95,7 +95,7 @@ class App extends React.Component {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(review)
+      body: JSON.stringify({ review })
    })
   }
 
