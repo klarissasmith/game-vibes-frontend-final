@@ -17,8 +17,8 @@ class NavBar extends React.Component {
   
   render() {
 
-    // const currentUser = this.props.currentUser
-    // const loggedIn = !!this.props.currentUser.id
+    const currentUser = this.props.currentUser
+    const loggedIn = !!this.props.currentUser.id
     console.log(this.props)
     return (
       <div>
@@ -44,13 +44,22 @@ class NavBar extends React.Component {
               </Form>
             </Nav>
             <Nav>
-              <LinkContainer to="/signup">
-                <Nav.Link href="/signup">Sign Up</Nav.Link>
-              </LinkContainer>
+                <LinkContainer to="/signup">
+                  <Nav.Link href="/signup">Sign Up</Nav.Link>
+                </LinkContainer>
+              {loggedIn ? (
+                <LinkContainer to="login">
+                  <Nav.Link href="/login" onClick={() => { this.props.handleLogout(); this.props.history.push("/login") }}>
+                  Logout
 
-              <LinkContainer to="/login">
-                <Nav.Link href="/login">Login</Nav.Link>
-              </LinkContainer>
+                </Nav.Link>
+                </LinkContainer>
+              ) : (
+
+                <LinkContainer to="/login">
+                  <Nav.Link href="/login">Login</Nav.Link>
+                </LinkContainer> 
+              )}
             </Nav>
           </Navbar.Collapse>
         </Navbar>

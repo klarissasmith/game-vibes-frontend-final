@@ -27,9 +27,9 @@ class Login extends React.Component{
   render() {
     // console.log(this.props)
         return (
-          <div >
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Group controlId="formGroupUsername">
+          <div>
+            <Form inline onSubmit={this.handleSubmit}>
+              <Form.Group as={Col} controlId="formGroupUsername">
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
                   type="username"
@@ -37,18 +37,24 @@ class Login extends React.Component{
                   name="username"
                   value={this.state.formFields.username}
                   onChange={this.handleChange}
-                  
                 />
               </Form.Group>
-              <Form.Group controlId="formGroupPassword">
+              <Form.Group as={Col} controlId="formGroupPassword">
                 <Form.Label>Password:</Form.Label>
-                <Form.Control type="password"
+                <Form.Control
+                  type="password"
                   placeholder="Password"
                   name="password"
                   value={this.state.formFields.password}
                   onChange={this.handleChange}
                 />
-                <Button as="input" type="submit" value="Submit" onClick={() => this.showAlert} />
+                <Button
+                  className="primary-button"
+                  as="input"
+                  type="submit"
+                  value="Submit"
+                  onClick={() => this.showAlert}
+                />
               </Form.Group>
             </Form>
           </div>

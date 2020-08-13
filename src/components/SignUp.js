@@ -27,9 +27,9 @@ class SignUp extends React.Component{
   render() {
         return (
           <div>
-            <Form onSubmit={this.handleSubmit} >
+            <Form inline onSubmit={this.handleSubmit} >
               <Form.Group as={Col} controlId="formGroupUsername">
-                <Form.Label>Username</Form.Label>
+                <Form.Label>Username:</Form.Label>
                 <Form.Control
                   type="username"
                   placeholder="Enter your username"
@@ -40,9 +40,9 @@ class SignUp extends React.Component{
                 />
               </Form.Group>
               <Form.Group as={Col} controlId="formGroupPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Password:</Form.Label>
                 <Form.Control type="password" placeholder="Password" name="password" value={this.state.fields.password} onChange={this.handleChange}/>
-                <Button as="input" type="submit" value="Submit"
+                <Button className="primary-button" as="input" type="submit" value="Submit"
                 />
               </Form.Group>
             </Form>
