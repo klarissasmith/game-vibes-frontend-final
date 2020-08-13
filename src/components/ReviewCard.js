@@ -17,7 +17,7 @@ class ReviewCard extends React.Component{
               <Card.Body>
                 {summary}
               </Card.Body>
-              <button className="primary-button" onClick={this.handleClick}> Delete </button>
+              <button className="secondary-button" onClick={this.handleClick}> Delete </button>
               <button className="secondary-button" > Edit </button>
             </Card>
             </CardDeck>

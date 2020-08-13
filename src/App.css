@@ -55,7 +55,7 @@ color: #5C4AEA;
   background-color: #5C4AEA;
   position: static;
   width: 124px;
-  height: 50px;
+  height: 40px;
   left: 32px;
   top: 12px;
 
@@ -68,6 +68,7 @@ color: #5C4AEA;
 
 
   color: #FFFFFF;
+  border: 2px solid #5C4AEA;
 
 
   /* Inside Auto Layout */
@@ -77,3 +78,40 @@ color: #5C4AEA;
   align-self: left;
   margin: 10px 0px;
 }
+
+.search-button {
+
+background-color: #FFFFFF;
+  position: static;
+  width: 124px;
+  height: 40px;
+  left: 32px;
+  top: 12px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 20px;
+  /* identical to box height, or 111% */
+
+
+  color: #5C4AEA;
+  border: 2px solid #5C4AEA;
+
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  align-self: left;
+  margin: 10px 0px;
+}
+
+/* .logo {
+position: absolute;
+width: 60px;
+height: 50px;
+left: 149px;
+top: 0px;
+} */

@@ -42,7 +42,7 @@ class ReviewForm extends React.Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant="primary" type="submit" onSubmit={this.handleSubmit}>
+          <Button className="search-button" variant="primary" type="submit" onSubmit={this.handleSubmit}>
             Submit
           </Button>
         </Form>
