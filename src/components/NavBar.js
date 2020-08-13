@@ -8,12 +8,16 @@ import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from 'react-router-bootstrap'
 
 class NavBar extends React.Component {
+  
   changeBtn = (props) => {
-    console.log(this.props.isLoggedin)
-    this.props.isLoggedin ? console.log("Yes") : console.log("NO")
+    
+    
   }
   
   render() {
+    const currentUser = this.props.currentUser
+    const loggedIn = !!this.props.currentUser.id
+    // console.log(this.props.currentUser)
     return (
       <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -56,11 +60,14 @@ class NavBar extends React.Component {
               <LinkContainer to="/signup">
                 <Nav.Link href="/signup">Sign Up</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/login">
-                <Nav.Link  href="/login">
-                  Login
+              {loggedIn ? <LinkContainer> <Nav.Link> Logout </Nav.Link></LinkContainer> :
+                <LinkContainer to="/login">
+                  <Nav.Link href="/login">
+                    Login
                 </Nav.Link>
-              </LinkContainer>
+                </LinkContainer>
+              }
+
             </Nav>
           </Navbar.Collapse>
         </Navbar>

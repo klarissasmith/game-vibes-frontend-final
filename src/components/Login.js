@@ -19,9 +19,8 @@ class Login extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const currentUserData = this.state.formFields
     //THE FETCH FOR LOGIN TO SEND THE DATA FROM HERE TO APP
-    this.props.loginFetch(currentUserData)
+    this.props.loginFetch(this.state.formFields).then(resp => { this.props.onLogin(resp) })
     this.props.history.push("/games")
   } 
 
