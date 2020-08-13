@@ -96,8 +96,20 @@ class App extends React.Component {
         Accept: "application/json",
       },
       body: JSON.stringify({ review })
-   })
-  }
+   }).then(this.setState({reviews: [...this.state.reviews, {...review}]}))
+}
+  
+/*
+state = {
+    games: [],
+    reviews: [],
+    auth: {
+      user: {
+        
+      }
+    }
+  };
+*/
 
 //THE APP
   render() {
