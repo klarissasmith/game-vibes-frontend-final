@@ -15,6 +15,7 @@ class ReviewCollection extends React.Component {
   render() {
     return (
       <div>
+        <h3>Reviews:</h3>
         {this.props.gameReviews.map((review) => (
           <ReviewCard
             review={review}

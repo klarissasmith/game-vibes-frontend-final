@@ -49,10 +49,10 @@ class Detail extends React.Component {
             </Card.Body>
           </Card>
         </CardDeck>
-        <ReviewForm game_id={parseInt(this.props.match.params.id)} createNewReview={this.props.createNewReview}/>
         <ListGroup border="dark">
           <ReviewCollection gameReviews={gameReviews}/>
         </ListGroup>
+        <ReviewForm game_id={parseInt(this.props.match.params.id)} createNewReview={this.props.createNewReview}/>
       </div>
     );
   }
