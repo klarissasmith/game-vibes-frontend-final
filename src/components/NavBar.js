@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from 'react-router-bootstrap'
+import logo from "../assets/logo.png";
 
 class NavBar extends React.Component {
   
@@ -23,7 +24,7 @@ class NavBar extends React.Component {
       <div>
         <Navbar collapseOnSelect expand="lg" bg="#FFFFFF" variant="light">
           <LinkContainer to="/">
-            <Navbar.Brand href="/">GameVibes</Navbar.Brand>
+            <Navbar.Brand href="/"> GameVibes</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

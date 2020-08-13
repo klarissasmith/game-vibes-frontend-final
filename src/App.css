@@ -55,7 +55,7 @@ color: #5C4AEA;
   background-color: #5C4AEA;
   position: static;
   width: 124px;
-  height: 50px;
+  height: 40px;
   left: 32px;
   top: 12px;
 
@@ -68,6 +68,7 @@ color: #5C4AEA;
 
 
   color: #FFFFFF;
+  border: 2px solid #5C4AEA;
 
 
   /* Inside Auto Layout */
@@ -106,3 +107,11 @@ background-color: #FFFFFF;
   align-self: left;
   margin: 10px 0px;
 }
+
+/* .logo {
+position: absolute;
+width: 60px;
+height: 50px;
+left: 149px;
+top: 0px;
+} */
