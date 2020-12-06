@@ -40,9 +40,7 @@ class App extends React.Component {
     .then((response) => response.json())
     .then((data) => this.setState({ reviews: data }))
     );
-    // if (token) {
-    //   this.getCurrentUser().then(user => {this.setState({auth:{...this.state.auth, user: {id: user.id, username:user.username}}})})
-    // }
+
   }
   //POST FETCHES FOR SIGN UP AND LOGIN
   createNewUser = (user) => {
@@ -75,16 +73,6 @@ class App extends React.Component {
     console.log(this.state.auth.user)
   }
 
-  // getCurrentUser = () => {
-  //   return fetch("http://localhost:3000/current_user", {
-  //     headers: {
-  //       "Content-Type": "application/json", 
-  //       Accept: "application/json",
-  //       Authorization: token()
-  //     },
-  //   }).then(response => response.json())
-  // }
-
   logout = () => {
 
   }
@@ -105,17 +93,7 @@ class App extends React.Component {
     console.log(updatedReviews)
     this.setState({reviews: updatedReviews })
   }
-/*
-state = {
-    games: [],
-    reviews: [],
-    auth: {
-      user: {
-        
-      }
-    }
-  };
-*/
+
 
 //THE APP
   render() {
@@ -168,5 +146,3 @@ state = {
 }
 
 export default App;
-{/* <Route path='/dashboard' render={(props) => (<Dashboard {...props} isAuthed={true} />)} />
-<Route exact path='/games' render={(props) => (<GameCollection {...props} games={this.state.games} />)} /> */}
